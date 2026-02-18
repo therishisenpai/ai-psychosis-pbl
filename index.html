@@ -1,275 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Psychosis: An Analytical Study</title>
+  <meta charset="UTF-8">
+  <title>AI Psychosis – PBL Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #974881, #fec827);
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --text-dark: #1f1f1f;
-      --text-muted: #555;
-      --accent: #7d3b6a;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", system-ui, sans-serif;
-    }
-
     body {
-      background: var(--bg-gradient);
-      color: var(--text-dark);
-      line-height: 1.65;
-      padding: 40px 20px;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #1f2933, #4b5563);
+      color: #1e1e1e;
     }
 
-    main {
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeIn 1.1s ease;
+    .slide {
+      min-height: 100vh;
+      padding: 60px 80px;
+      box-sizing: border-box;
+      background: #ffffff;
+      margin: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      animation: fadeIn 0.8s ease;
     }
 
-    .hero {
-      margin-bottom: 60px;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      letter-spacing: 1.2px;
-      background: rgba(255,255,255,0.25);
-      color: #fff;
-      margin-bottom: 14px;
-    }
-
-    .hero h1 {
+    h1 {
       font-size: 3rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #fff;
+      margin-bottom: 10px;
     }
 
-    .hero h1 span {
-      color: #fec827;
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
     }
 
-    .hero p {
-      margin-top: 18px;
-      max-width: 720px;
+    p {
       font-size: 1.05rem;
-      color: #f3f3f3;
-      border-left: 4px solid #fec827;
-      padding-left: 16px;
-    }
-
-    section {
-      background: var(--card-bg);
-      border-radius: 22px;
-      padding: 34px;
-      margin-bottom: 38px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
-      animation: slideUp 0.9s ease;
-    }
-
-    section h2 {
-      font-size: 1.55rem;
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-
-    section p {
-      color: var(--text-muted);
-      margin-bottom: 12px;
+      line-height: 1.6;
+      color: #333;
     }
 
     ul {
+      margin-top: 10px;
       margin-left: 20px;
-      color: var(--text-muted);
     }
 
-    ul li {
+    li {
       margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #555;
+      max-width: 700px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: #e5e7eb;
+      margin-bottom: 20px;
     }
 
     .note {
       font-size: 0.9rem;
       color: #444;
-      background: #f5f5f5;
-      padding: 14px;
-      border-radius: 12px;
-      margin-top: 12px;
+      background: #f3f4f6;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 14px;
     }
 
-    .academic-credit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .credit-box {
+      margin-top: 60px;
       text-align: center;
     }
 
-    .credit-label {
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      color: #333;
-      margin-bottom: 16px;
-    }
-
     .credit-card {
-      background: linear-gradient(135deg, #fec827, #e0a53a);
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #22d3ee);
+      padding: 30px 40px;
       border-radius: 22px;
-      padding: 28px 36px;
-      min-width: 280px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      color: #0f172a;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.25);
     }
 
-    .credit-role {
-      font-size: 0.75rem;
-      letter-spacing: 1.4px;
-      color: #5a3a00;
-    }
-
-    .credit-name {
-      margin: 8px 0;
+    .credit-card h3 {
+      margin: 10px 0;
       font-size: 1.7rem;
-      font-weight: 800;
-      color: #1f1f1f;
     }
 
-    .credit-meta {
+    .credit-card p {
+      margin: 4px 0;
       font-size: 0.9rem;
-      color: #3b2a00;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(18px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
-  <main>
 
-    <!-- HERO -->
-    <div class="hero">
-      <div class="pill">AI ETHICS & COGNITIVE STUDY</div>
-      <h1>AI <span>PSYCHOSIS</span></h1>
-      <p>
-        With AI becoming part of everyday life, there is growing concern that
-        excessive reliance on generative systems may be influencing how people
-        think, decide, and emotionally respond—especially among younger,
-        digitally native users.
-      </p>
+  <!-- SLIDE 1 -->
+  <div class="slide">
+    <span class="tag">PROJECT BASED LEARNING (PBL)</span>
+    <h1>AI Psychosis</h1>
+    <p class="subtitle">
+      An analytical study on the cognitive and behavioral impact of excessive
+      dependence on generative AI systems.
+    </p>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide">
+    <h2>Introduction</h2>
+    <p>
+      Generative AI systems have rapidly become integrated into education,
+      entertainment, and personal decision-making. While these tools provide
+      convenience and efficiency, increasing dependence on AI raises concerns
+      regarding reduced independent thinking and emotional reliance.
+    </p>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide">
+    <h2>Problem Statement</h2>
+    <p>
+      There is limited structured research examining the psychological and
+      behavioral effects experienced by users due to prolonged interaction with
+      generative AI systems, particularly among students and digitally native
+      populations.
+    </p>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide">
+    <h2>Objectives</h2>
+    <ul>
+      <li>To study cognitive dependence arising from AI usage</li>
+      <li>To analyze behavioral and emotional reliance on AI systems</li>
+      <li>To examine hallucination acceptance in AI-generated outputs</li>
+      <li>To discuss ethical and educational implications</li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide">
+    <h2>Methodology</h2>
+    <ul>
+      <li>Literature review of academic papers and reports</li>
+      <li>Observation of user behavior patterns</li>
+      <li>Qualitative analysis of documented case studies</li>
+      <li>Conceptual framework development</li>
+    </ul>
+
+    <div class="note">
+      This study is qualitative in nature and does not rely on experimental or
+      numerical datasets.
     </div>
+  </div>
 
-    <!-- INTRODUCTION -->
-    <section>
-      <h2>Introduction</h2>
-      <p>
-        Generative AI tools have rapidly moved from experimental systems to
-        everyday utilities. Students, professionals, and even children now
-        interact with AI on a daily basis for learning, decision-making, and
-        emotional expression.
-      </p>
-      <p>
-        While these systems provide clear benefits, recent discussions suggest
-        that overuse may lead to reduced independent thinking, overtrust in AI
-        outputs, and difficulty functioning without algorithmic assistance.
-      </p>
-    </section>
+  <!-- SLIDE 6 -->
+  <div class="slide">
+    <h2>Analysis & Observations</h2>
+    <p>
+      Observations indicate increased cognitive offloading, reduced problem-
+      solving initiative, emotional reliance on conversational AI, and growing
+      trust in AI-generated information without verification.
+    </p>
+  </div>
 
-    <!-- PROBLEM STATEMENT -->
-    <section>
-      <h2>Problem Statement</h2>
-      <p>
-        Despite increasing dependence on AI systems, there is limited academic
-        work that frames these behavioral changes in a structured and analytical
-        manner, particularly from a cognitive and ethical perspective.
-      </p>
-    </section>
+  <!-- SLIDE 7 -->
+  <div class="slide">
+    <h2>Expected Outcome</h2>
+    <p>
+      The project aims to provide a structured understanding of AI-related
+      cognitive dependence and encourage balanced, responsible usage of
+      generative AI systems.
+    </p>
+  </div>
 
-    <!-- OBJECTIVES -->
-    <section>
-      <h2>Objectives</h2>
-      <ul>
-        <li>To explore how prolonged AI usage affects human cognition</li>
-        <li>To examine emotional and decision-making dependence on AI systems</li>
-        <li>To study hallucination-like behavior in generative models</li>
-        <li>To develop a simple conceptual framework for analysis</li>
-        <li>To highlight ethical and safety concerns</li>
-      </ul>
-    </section>
+  <!-- SLIDE 8 -->
+  <div class="slide">
+    <h2>References</h2>
+    <p>
+      (MLA format references as collected during literature review)
+    </p>
+    <p>
+      Paste your existing citations here exactly as written.
+    </p>
+  </div>
 
-    <!-- METHODOLOGY -->
-    <section>
-      <h2>Proposed Methodology</h2>
-      <ul>
-        <li>Review of academic literature and industry reports</li>
-        <li>Observation of user behavior trends and case examples</li>
-        <li>Qualitative comparison of AI-assisted vs independent reasoning</li>
-        <li>Conceptual analysis rather than numerical experimentation</li>
-      </ul>
-    </section>
-
-    <!-- ANALYSIS -->
-    <section>
-      <h2>Analysis & Observations</h2>
-      <p>
-        Initial observations suggest increased cognitive offloading, emotional
-        reliance on conversational AI, and a tendency to accept AI outputs
-        without verification among frequent users.
-      </p>
-
-      <div class="note">
-        <strong>Note:</strong> This phase of the project is exploratory in nature.
-        The analysis is qualitative and based on observation and literature,
-        rather than primary statistical data collection.
+  <!-- SLIDE 9 -->
+  <div class="slide">
+    <div class="credit-box">
+      <div class="credit-card">
+        <p>STUDENT RESEARCHER</p>
+        <h3>Rishi Bhardwaj</h3>
+        <p>B.Tech CSE – IV Semester</p>
+        <p>Manipal University Jaipur</p>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- EXPECTED OUTCOME -->
-    <section>
-      <h2>Expected Outcome</h2>
-      <p>
-        The study aims to contribute a clearer understanding of how AI
-        dependency may influence human cognition and to encourage responsible
-        and balanced use of generative AI systems.
-      </p>
-    </section>
-
-    <!-- PROJECT STATUS -->
-    <section>
-      <h2>Project Status</h2>
-      <p>
-        The project is currently in the research and documentation stage, with
-        further analysis planned in later phases.
-      </p>
-    </section>
-
-    <!-- ACADEMIC CREDITS -->
-    <section style="background:none; box-shadow:none;">
-      <div class="academic-credit">
-        <p class="credit-label">ACADEMIC CREDITS</p>
-        <div class="credit-card">
-          <p class="credit-role">STUDENT RESEARCHER</p>
-          <h3 class="credit-name">Rishi Bhardwaj</h3>
-          <p class="credit-meta">B.Tech CSE • IV Semester</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
 </body>
 </html>
