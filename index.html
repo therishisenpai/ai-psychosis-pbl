@@ -1,58 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>AI Psychosis – PBL Project</title>
+  <meta charset="UTF-8" />
+  <title>AI Psychosis – PBL Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #974881, #fec827);
+      color: #111;
+      padding: 40px 20px;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      animation: slideUp 1s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); }
+      to { transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #974881, #fec827);
+      display: block;
+      margin-top: 6px;
+      border-radius: 2px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #333;
+      margin-top: 12px;
+      text-align: justify;
+    }
+
+    ul {
+      margin-top: 12px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-left: 5px solid #974881;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateX(5px);
+    }
+
+    .status {
+      margin-top: 30px;
+      padding: 15px;
+      background: #111;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #974881, #fec827);
+      color: #111;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>AI Psychosis: An Analytical Study</h1>
+  <div class="container">
+    <h1>AI Psychosis: An Analytical Study</h1>
+    <div class="subtitle">
+      Exploring cognitive degradation, emotional dependency, and behavioral deviation
+      caused by prolonged interaction with Generative AI systems
+    </div>
 
-<p>
-This project is part of the Project-Based Learning (PBL) curriculum.
-It focuses on the study of AI psychosis, where generative AI systems exhibit
-hallucinations, delusional reasoning, or inconsistent cognitive behavior.
-</p>
+    <h2>Introduction</h2>
+    <p>
+      The rapid advancement of Generative Artificial Intelligence and Large Language Models (LLMs)
+      has significantly altered human interaction with technology. AI systems are increasingly used
+      for learning, decision-making, and emotional engagement. While these systems offer convenience
+      and efficiency, excessive reliance has raised concerns regarding cognitive and psychological impact.
+    </p>
 
-<h2>Introduction</h2>
-<p>
-Recent advancements in large language models have led to the emergence of
-unexpected behaviors such as hallucinations and reasoning inconsistencies.
-These behaviors resemble certain cognitive distortions observed in human psychosis.
-</p>
+    <h2>What is AI Psychosis?</h2>
+    <div class="card">
+      <p>
+        AI Psychosis is an analytical concept describing psychosis-like cognitive and behavioral
+        deviations observed in humans due to excessive interaction with AI systems. This includes
+        reduced independent reasoning, emotional dependency, hallucination acceptance, and
+        distorted perception of reality. It is not a medical diagnosis but a framework for study.
+      </p>
+    </div>
 
-<h2>Problem Statement</h2>
-<p>
-There is a lack of structured frameworks to analyze, classify, and understand
-psychosis-like behaviors in modern generative AI systems.
-</p>
+    <h2>Problem Statement</h2>
+    <p>
+      There is currently a lack of structured frameworks to analyze and understand the psychological
+      and cognitive consequences of prolonged AI dependency. As AI systems become increasingly
+      integrated into education and daily life, the absence of awareness and regulation poses
+      significant risks, particularly for younger generations.
+    </p>
 
-<h2>Objectives</h2>
-<ul>
-    <li>To study the phenomenon of AI psychosis</li>
-    <li>To analyze hallucination and behavioral deviation in AI systems</li>
-    <li>To propose a conceptual analytical framework</li>
-    <li>To discuss ethical and safety implications</li>
-</ul>
+    <h2>Objectives</h2>
+    <ul>
+      <li>To study the phenomenon of AI psychosis and its manifestations</li>
+      <li>To analyze emotional and cognitive dependency on AI systems</li>
+      <li>To identify behavioral deviation patterns in AI users</li>
+      <li>To discuss ethical and safety implications of AI-human interaction</li>
+    </ul>
 
-<h2>Proposed Methodology</h2>
-<ul>
-    <li>Literature review of existing research</li>
-    <li>Case study analysis of AI hallucinations</li>
-    <li>Conceptual framework development</li>
-    <li>Discussion of mitigation strategies</li>
-</ul>
+    <h2>Proposed Methodology</h2>
+    <div class="card">
+      <ul>
+        <li>Literature review of academic and industry research</li>
+        <li>Analysis of case studies related to AI hallucination and dependency</li>
+        <li>Conceptual framework development for classification</li>
+        <li>Discussion of mitigation and ethical guidelines</li>
+      </ul>
+    </div>
 
-<h2>Expected Outcome</h2>
-<p>
-The project aims to provide structured analytical insights into AI psychosis
-and contribute to safer and more reliable AI systems.
-</p>
+    <h2>Expected Outcome</h2>
+    <p>
+      The project aims to provide structured analytical insights into AI-induced cognitive deviation
+      and raise awareness about responsible AI usage. The study is intended to contribute to safer,
+      more ethical AI-human interaction models.
+    </p>
 
-<h2>Project Status</h2>
-<p>
-Currently in the research and documentation phase.
-</p>
+    <div class="status">
+      <strong>Project Status:</strong> Literature review and documentation phase in progress.
+    </div>
+
+    <a href="https://github.com/therishisenpai/ai-psychosis-pbl" class="btn" target="_blank">
+      View GitHub Repository
+    </a>
+
+    <footer>
+      <p>
+        Project Based Learning (PBL) • B.Tech CSE • Manipal University Jaipur  
+        <br />
+        Prepared by: <strong>Rishi Senpai</strong>
+      </p>
+    </footer>
+  </div>
 
 </body>
 </html>
