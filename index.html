@@ -1,230 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Psychosis | PBL 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Psychosis: An Analytical Study</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #974881, #fec827);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --text-dark: #1e1e1e;
+      --text-muted: #555;
+      --accent: #974881;
+    }
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
 
-        body {
-            background: linear-gradient(135deg, #974881, #fec827);
-            color: #f8fafc;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
-        }
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
+    main {
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1.2s ease;
+    }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #fec827, #974881);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+    .hero {
+      margin-bottom: 60px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 1.2px;
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .hero h1 span {
+      color: #fec827;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      max-width: 720px;
+      font-size: 1.05rem;
+      color: #f4f4f4;
+      border-left: 4px solid #fec827;
+      padding-left: 16px;
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: 22px;
+      padding: 36px;
+      margin-bottom: 40px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+      animation: slideUp 1s ease;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      color: var(--accent);
+    }
+
+    section p {
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      color: var(--text-muted);
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #444;
+      background: #f6f6f6;
+      padding: 14px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    /* Academic Credits */
+    .academic-credit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .credit-label {
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .credit-card {
+      background: linear-gradient(135deg, #fec827, #e3a642);
+      border-radius: 22px;
+      padding: 28px 36px;
+      min-width: 280px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .credit-role {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      color: #5a3a00;
+    }
+
+    .credit-name {
+      margin: 8px 0;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #1f1f1f;
+    }
+
+    .credit-meta {
+      font-size: 0.9rem;
+      color: #3b2a00;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
 </head>
 
-<body onload="startTimer()">
+<body>
+  <main>
 
-<!-- TIMER -->
-<div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 bg-white text-black shadow-2xl border-4 border-purple-600 z-50">
-    <i class="fas fa-hourglass-start text-purple-600 text-2xl" id="timerIcon"></i>
-    <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
-</div>
-
-<!-- NAV -->
-<nav class="fixed w-full z-40 glass px-8 py-4 flex justify-between items-center border-b border-white/10">
-    <span class="font-black tracking-widest uppercase text-sm">PBL 2026 • CSE</span>
-    <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-widest font-bold opacity-80">
-        <a href="#problem" class="hover:text-black transition">Problem</a>
-        <a href="#methodology" class="hover:text-black transition">Methodology</a>
-        <a href="#results" class="hover:text-black transition">Analysis</a>
-        <a href="#team" class="hover:text-black transition">Credits</a>
-    </div>
-</nav>
-
-<main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
-
-<!-- HERO -->
-<section class="text-center">
-    <div class="inline-block px-4 py-1 border border-white/30 rounded-full text-white text-[10px] font-mono mb-6 uppercase tracking-widest">
-        AI Ethics & Cognitive Analysis
-    </div>
-
-    <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
-        <span class="gradient-text">AI Psychosis</span>
-    </h1>
-
-    <p class="text-white/80 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-black/40 pl-6 text-left">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="pill">AI ETHICS & COGNITIVE ANALYSIS</div>
+      <h1>AI <span>PSYCHOSIS</span></h1>
+      <p>
         Excessive reliance on generative AI systems may induce psychosis-like
         cognitive and behavioral deviations in humans, particularly among
         digitally native generations.
-    </p>
-</section>
-
-<!-- PROBLEM -->
-<section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
-    <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-black">
-        <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
-        <p class="text-white/80 leading-relaxed text-justify">
-            The rapid adoption of generative AI in education, decision-making,
-            and emotional interaction has outpaced understanding of its cognitive
-            consequences. Users increasingly defer reasoning, memory, and emotional
-            processing to AI systems, normalizing hallucinated outputs and weakening
-            independent thought.
-        </p>
+      </p>
     </div>
 
-    <div class="space-y-6">
-        <div class="glass p-7 rounded-3xl border-r-4 border-black/60">
-            <h3 class="font-bold text-xs uppercase tracking-widest mb-2">Literature Review</h3>
-            <p class="text-sm text-white/70 italic">
-                Studies from MDPI, NAEP, NYT, and independent research indicate
-                declining reading comprehension, reduced attention span, and
-                increased AI dependency among students.
-            </p>
+    <!-- INTRODUCTION -->
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        Recent advancements in generative AI and large language models have
+        introduced unprecedented convenience, automation, and accessibility
+        to information and decision-making processes.
+      </p>
+      <p>
+        However, emerging observations suggest that prolonged and excessive
+        dependence on AI systems may be associated with hallucination-like
+        reasoning, emotional reliance, and reduced independent cognitive effort.
+      </p>
+    </section>
+
+    <!-- PROBLEM STATEMENT -->
+    <section>
+      <h2>Problem Statement</h2>
+      <p>
+        There is currently a lack of structured academic frameworks to analyze,
+        classify, and understand psychosis-like behavioral and cognitive
+        deviations emerging from excessive AI usage.
+      </p>
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section>
+      <h2>Objectives</h2>
+      <ul>
+        <li>To study the phenomenon of AI-induced cognitive dependency</li>
+        <li>To analyze hallucination and behavioral deviation in AI systems</li>
+        <li>To examine emotional reliance on conversational AI platforms</li>
+        <li>To propose a conceptual analytical framework</li>
+        <li>To discuss ethical and safety implications</li>
+      </ul>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section>
+      <h2>Proposed Methodology</h2>
+      <ul>
+        <li>Literature review of existing academic and industry research</li>
+        <li>Qualitative analysis of AI hallucination case studies</li>
+        <li>Observational study of user behavior trends</li>
+        <li>Conceptual framework development</li>
+        <li>Discussion of mitigation strategies</li>
+      </ul>
+    </section>
+
+    <!-- ANALYSIS -->
+    <section>
+      <h2>Analysis & Observations</h2>
+      <p>
+        Observations indicate increased cognitive offloading, reduced
+        problem-solving initiative, emotional dependency, and normalization of
+        AI-generated inaccuracies among heavy AI users.
+      </p>
+
+      <div class="note">
+        <strong>Note:</strong> The findings presented are qualitative and
+        observational in nature. No primary statistical data collection was
+        conducted as part of this phase of the project.
+      </div>
+    </section>
+
+    <!-- EXPECTED OUTCOME -->
+    <section>
+      <h2>Expected Outcome</h2>
+      <p>
+        The project aims to provide structured analytical insights into AI
+        psychosis and contribute toward the development of safer, more reliable,
+        and ethically designed AI systems.
+      </p>
+    </section>
+
+    <!-- PROJECT STATUS -->
+    <section>
+      <h2>Project Status</h2>
+      <p>
+        Currently in the research, documentation, and conceptual framework
+        development phase.
+      </p>
+    </section>
+
+    <!-- ACADEMIC CREDITS -->
+    <section style="background:none; box-shadow:none;">
+      <div class="academic-credit">
+        <p class="credit-label">ACADEMIC CREDITS</p>
+        <div class="credit-card">
+          <p class="credit-role">STUDENT RESEARCHER</p>
+          <h3 class="credit-name">Rishi Senpai</h3>
+          <p class="credit-meta">B.Tech CSE • IV Semester</p>
         </div>
+      </div>
+    </section>
 
-        <div class="glass p-7 rounded-3xl border-r-4 border-purple-900">
-            <h3 class="font-bold text-xs uppercase tracking-widest mb-2">Research Gap</h3>
-            <p class="text-sm text-white/70 italic">
-                Existing work focuses on AI hallucinations at the model level.
-                This study examines deeper human-side cognitive distortion,
-                emotional reliance, and behavioral degradation.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- METHODOLOGY -->
-<section id="methodology" class="space-y-12">
-    <h2 class="text-4xl font-black text-center uppercase tracking-tight">
-        Research <span class="text-black">Methodology</span>
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass p-8 rounded-3xl text-center">
-            <i class="fas fa-book-open text-black text-3xl mb-4"></i>
-            <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Input Sources</h3>
-            <p class="text-sm text-white/70">
-                Academic papers, educational reports, generational studies,
-                and behavioral observations.
-            </p>
-        </div>
-
-        <div class="glass p-8 rounded-3xl text-center">
-            <i class="fas fa-brain text-black text-3xl mb-4"></i>
-            <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Framework</h3>
-            <p class="text-sm text-white/70">
-                Conceptual classification of AI-induced cognitive deviation
-                based on dependency intensity and usage context.
-            </p>
-        </div>
-
-        <div class="glass p-8 rounded-3xl text-center border-2 border-black/40">
-            <i class="fab fa-github text-black text-3xl mb-4"></i>
-            <h3 class="font-bold mb-4 uppercase text-xs tracking-widest">Documentation</h3>
-            <a href="https://github.com/therishisenpai/ai-psychosis-pbl"
-               target="_blank"
-               class="px-6 py-2 bg-black text-white rounded-full text-[10px] font-black hover:opacity-80 transition">
-               VIEW REPOSITORY
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- RESULTS -->
-<section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-black">
-    <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-        Analysis & Observations
-    </h2>
-
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="h-80">
-            <canvas id="resultsChart"></canvas>
-        </div>
-
-        <div class="space-y-6">
-            <div class="p-6 rounded-2xl bg-black/30 flex justify-between items-center">
-                <span class="uppercase text-xs tracking-widest">Nature of Results</span>
-                <span class="font-mono font-black text-3xl">Qualitative</span>
-            </div>
-
-            <p class="text-white/70 text-sm italic text-justify leading-relaxed">
-                Observations indicate increased cognitive offloading, reduced
-                problem-solving initiative, emotional dependency, and normalization
-                of AI-generated hallucinations among heavy AI users.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- TEAM -->
-<section id="team" class="text-center pt-10 border-t border-white/20">
-    <h2 class="text-[10px] font-black uppercase tracking-[0.5em] mb-12 opacity-70">
-        Academic Credits
-    </h2>
-
-    <div class="flex justify-center">
-        <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-black">
-            <p class="text-[9px] font-bold uppercase tracking-widest mb-2">Student Researcher</p>
-            <p class="font-black text-xl">Rishi Senpai</p>
-            <p class="text-[10px] text-white/60 mt-1">B.Tech CSE • IV Semester</p>
-        </div>
-    </div>
-</section>
-
-</main>
-
-<footer class="py-12 text-center bg-black/40 border-t border-white/10">
-    <p class="text-[10px] font-bold uppercase tracking-widest opacity-70">
-        Manipal University Jaipur • Department of CSE • 2026
-    </p>
-</footer>
-
-<script>
-let sec = 0;
-function startTimer() {
-    setInterval(() => {
-        sec++;
-        let m = Math.floor(sec / 60);
-        let s = sec % 60;
-        document.getElementById('displayTime').innerText =
-            `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-    }, 1000);
-}
-
-const ctx = document.getElementById('resultsChart').getContext('2d');
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Low AI Reliance', 'High AI Reliance'],
-        datasets: [{
-            data: [85, 40],
-            backgroundColor: ['#000000', '#ffffff'],
-            borderRadius: 12
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-            y: { beginAtZero: true, ticks: { color: '#ffffff80' } },
-            x: { ticks: { color: '#ffffff80' } }
-        }
-    }
-});
-</script>
-
+  </main>
 </body>
 </html>
