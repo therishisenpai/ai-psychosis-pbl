@@ -1,213 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Psychosis – PBL Project</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PBL | AI Psychosis</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
     body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #1f2933, #4b5563);
-      color: #1e1e1e;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top, #1e293b 0%, #020617 55%);
+      scroll-behavior: smooth;
     }
 
-    .slide {
-      min-height: 100vh;
-      padding: 60px 80px;
-      box-sizing: border-box;
-      background: #ffffff;
-      margin: 40px;
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-      animation: fadeIn 0.8s ease;
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-    }
-
-    p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    ul {
-      margin-top: 10px;
-      margin-left: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-      color: #555;
-      max-width: 700px;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: #e5e7eb;
-      margin-bottom: 20px;
-    }
-
-    .note {
-      font-size: 0.9rem;
-      color: #444;
-      background: #f3f4f6;
-      padding: 12px;
-      border-radius: 10px;
-      margin-top: 14px;
-    }
-
-    .credit-box {
-      margin-top: 60px;
-      text-align: center;
-    }
-
-    .credit-card {
-      display: inline-block;
-      background: linear-gradient(135deg, #3b82f6, #22d3ee);
-      padding: 30px 40px;
-      border-radius: 22px;
-      color: #0f172a;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.25);
-    }
-
-    .credit-card h3 {
-      margin: 10px 0;
-      font-size: 1.7rem;
-    }
-
-    .credit-card p {
-      margin: 4px 0;
-      font-size: 0.9rem;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+    .gradient-text {
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- SLIDE 1 -->
-  <div class="slide">
-    <span class="tag">PROJECT BASED LEARNING (PBL)</span>
-    <h1>AI Psychosis</h1>
-    <p class="subtitle">
-      An analytical study on the cognitive and behavioral impact of excessive
-      dependence on generative AI systems.
-    </p>
-  </div>
-
-  <!-- SLIDE 2 -->
-  <div class="slide">
-    <h2>Introduction</h2>
-    <p>
-      Generative AI systems have rapidly become integrated into education,
-      entertainment, and personal decision-making. While these tools provide
-      convenience and efficiency, increasing dependence on AI raises concerns
-      regarding reduced independent thinking and emotional reliance.
-    </p>
-  </div>
-
-  <!-- SLIDE 3 -->
-  <div class="slide">
-    <h2>Problem Statement</h2>
-    <p>
-      There is limited structured research examining the psychological and
-      behavioral effects experienced by users due to prolonged interaction with
-      generative AI systems, particularly among students and digitally native
-      populations.
-    </p>
-  </div>
-
-  <!-- SLIDE 4 -->
-  <div class="slide">
-    <h2>Objectives</h2>
-    <ul>
-      <li>To study cognitive dependence arising from AI usage</li>
-      <li>To analyze behavioral and emotional reliance on AI systems</li>
-      <li>To examine hallucination acceptance in AI-generated outputs</li>
-      <li>To discuss ethical and educational implications</li>
-    </ul>
-  </div>
-
-  <!-- SLIDE 5 -->
-  <div class="slide">
-    <h2>Methodology</h2>
-    <ul>
-      <li>Literature review of academic papers and reports</li>
-      <li>Observation of user behavior patterns</li>
-      <li>Qualitative analysis of documented case studies</li>
-      <li>Conceptual framework development</li>
-    </ul>
-
-    <div class="note">
-      This study is qualitative in nature and does not rely on experimental or
-      numerical datasets.
+  <!-- NAVBAR -->
+  <nav class="fixed w-full z-50 glass border-b border-slate-800 px-8 py-4 flex justify-between items-center">
+    <div>
+      <p class="text-xl font-black tracking-tight">PBL <span class="text-blue-400">2026</span></p>
+      <p class="text-[10px] uppercase tracking-widest text-slate-400">Dept. of Computer Science & Engineering</p>
     </div>
-  </div>
+    <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-widest font-bold text-slate-400">
+      <a href="#problem" class="hover:text-blue-400">Problem</a>
+      <a href="#review" class="hover:text-blue-400">Review</a>
+      <a href="#credits" class="hover:text-blue-400">Credits</a>
+    </div>
+  </nav>
 
-  <!-- SLIDE 6 -->
-  <div class="slide">
-    <h2>Analysis & Observations</h2>
-    <p>
-      Observations indicate increased cognitive offloading, reduced problem-
-      solving initiative, emotional reliance on conversational AI, and growing
-      trust in AI-generated information without verification.
-    </p>
-  </div>
+  <!-- MAIN -->
+  <main class="max-w-6xl mx-auto px-6 pt-44 pb-32 space-y-32">
 
-  <!-- SLIDE 7 -->
-  <div class="slide">
-    <h2>Expected Outcome</h2>
-    <p>
-      The project aims to provide a structured understanding of AI-related
-      cognitive dependence and encourage balanced, responsible usage of
-      generative AI systems.
-    </p>
-  </div>
-
-  <!-- SLIDE 8 -->
-  <div class="slide">
-    <h2>References</h2>
-    <p>
-      (MLA format references as collected during literature review)
-    </p>
-    <p>
-      Paste your existing citations here exactly as written.
-    </p>
-  </div>
-
-  <!-- SLIDE 9 -->
-  <div class="slide">
-    <div class="credit-box">
-      <div class="credit-card">
-        <p>STUDENT RESEARCHER</p>
-        <h3>Rishi Bhardwaj</h3>
-        <p>B.Tech CSE – IV Semester</p>
-        <p>Manipal University Jaipur</p>
+    <!-- HERO -->
+    <section class="text-center">
+      <div class="inline-block px-4 py-1 border border-slate-700 rounded-full text-slate-400 text-[10px] font-mono mb-6">
+        ID: [REGISTRATION NUMBER]
       </div>
-    </div>
-  </div>
+
+      <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase">
+        <span class="gradient-text">AI Psychosis</span>
+      </h1>
+
+      <p class="max-w-2xl mx-auto italic text-slate-400 text-lg leading-relaxed border-l-2 border-blue-500/40 pl-6 text-left">
+        This project explores how increasing dependence on generative AI systems may
+        influence human cognition, decision-making, and emotional behavior,
+        particularly among digitally native users.
+      </p>
+    </section>
+
+    <!-- PROBLEM STATEMENT -->
+    <section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
+      <div class="glass p-10 rounded-[2.5rem] border-l-4 border-blue-600">
+        <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+        <p class="text-slate-400 leading-relaxed text-justify">
+          With the rapid adoption of AI tools in education and daily life, concerns have emerged
+          regarding reduced independent thinking, over-reliance on automated systems, and
+          emotional attachment to AI-generated interactions.
+          Currently, there is limited structured discussion around these effects in academic settings,
+          especially from a behavioral and ethical perspective.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div id="review" class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
+          <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">
+            Literature Review
+          </h3>
+          <p class="text-sm text-slate-400">
+            Existing studies highlight declining attention spans, increasing cognitive offloading,
+            and emotional reliance on digital systems. Research on short-form content,
+            AI hallucinations, and online behavioral dependency provides foundational insight
+            for this project.
+          </p>
+        </div>
+
+        <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
+          <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">
+            Research Gap
+          </h3>
+          <p class="text-sm text-slate-400">
+            While technical performance of AI systems is widely studied,
+            fewer works focus on the long-term cognitive and psychological impact
+            of sustained AI dependence on users, particularly students.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="glass p-12 rounded-[3rem] border-t-4 border-blue-500">
+      <h2 class="text-3xl font-black mb-6 text-center uppercase tracking-tight">
+        Project Status
+      </h2>
+      <p class="text-slate-400 max-w-3xl mx-auto text-center leading-relaxed">
+        The project is currently in the research and documentation phase.
+        Initial literature review, conceptual framing, and background analysis
+        have been completed as part of the mid-term evaluation.
+      </p>
+    </section>
+
+    <!-- CREDITS -->
+    <section id="credits" class="text-center pt-10 border-t border-slate-800">
+      <h2 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.5em] mb-12">
+        Academic Credits
+      </h2>
+
+      <div class="flex justify-center">
+        <div class="glass px-14 py-10 rounded-[2.5rem] border-b-4 border-blue-600">
+          <p class="text-[10px] font-bold uppercase tracking-widest text-blue-400 mb-2">
+            Student Researcher
+          </p>
+          <p class="font-black text-2xl text-slate-100">
+            Rishi Bhardwaj
+          </p>
+          <p class="text-[11px] text-slate-400 mt-1">
+            B.Tech CSE • IV Semester
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center border-t border-slate-800 bg-black/30">
+    <p class="text-slate-500 text-[10px] uppercase tracking-[0.3em] font-bold">
+      Manipal University Jaipur
+    </p>
+    <p class="text-slate-600 text-[9px] uppercase tracking-[0.2em]">
+      Project-Based Learning • 2026
+    </p>
+  </footer>
 
 </body>
 </html>
